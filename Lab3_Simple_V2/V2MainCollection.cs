@@ -4,11 +4,25 @@ using System.Linq;
 using System;
 using System.Numerics;
 
-namespace Lab2_V2_1
+namespace Lab3_Simple_V2
 {
     class V2MainCollection : IEnumerable<V2Data>
     {
         private List<V2Data> v2Datas;
+
+        public event DataChangedEventHandler DataChanged;
+
+        public V2Data this[int index]
+        {
+            get
+            {
+                return v2Datas[index];
+            }
+            set
+            {
+                v2Datas[index] = value;
+            }
+        }
 
         public int Count
         {
@@ -18,6 +32,10 @@ namespace Lab2_V2_1
         public void Add(V2Data item)
         {
             v2Datas.Add(item);
+            if (DataChanged != null)
+            {
+                DataChanged(this, new DataChangedEventArgs(ChangeInfo.Add, item.Freq));
+            }
         }
 
         public bool Remove(string id, double w)
@@ -35,6 +53,11 @@ namespace Lab2_V2_1
                 {
                     i++;
                 }
+            }
+
+            if (DataChanged != null)
+            {
+                DataChanged(this, new DataChangedEventArgs(ChangeInfo.Remove, w));
             }
 
             return flag;

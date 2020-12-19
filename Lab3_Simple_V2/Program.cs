@@ -2,8 +2,13 @@
 using System.Numerics;
 using System.IO;
 
-namespace Lab2_V2_1
+namespace Lab3_Simple_V2
 {
+
+    enum ChangeInfo { ItemChanged, Add, Remove, Replace};
+
+    delegate void DataChangedEventHandler(object source, DataChangedEventArgs args);
+
     struct DataItem
     {
         public Vector2 Vector { get; set; }
@@ -26,7 +31,6 @@ namespace Lab2_V2_1
             return "Vector: " + Vector.X.ToString(format) + " " + Vector.Y.ToString(format) + " " +
                    "Complex: " + Complex.ToString(format);
         }
-
     }
 
     struct Grid1D
@@ -49,34 +53,6 @@ namespace Lab2_V2_1
         {
             return "Step: " + Step.ToString(format) + "; Num: " + Num.ToString(format);
         }
-    }
-
-    abstract class V2Data
-    {
-        public string Info { get; set; }
-        public double Freq { get; set; }
-
-        public V2Data(string info, double freq)
-        {
-            Info = info;
-            Freq = freq;
-        }
-
-        public V2Data()
-        {
-            Info = "info";
-            Freq = 100;
-        }
-
-        public abstract Complex[] NearAverage(float eps);
-        public abstract string ToLongString();
-        public abstract string ToLongString(string format);
-
-        public override string ToString()
-        {
-            return "Info: " + Info + " Frequency: " + Freq.ToString();
-        }
-
     }
 
     class Program
