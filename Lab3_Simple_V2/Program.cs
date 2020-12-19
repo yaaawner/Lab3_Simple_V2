@@ -57,44 +57,28 @@ namespace Lab3_Simple_V2
 
     class Program
     {
+        private static void DataChangedHandler(object source, DataChangedEventArgs args)
+        {
+            Console.WriteLine(args.ToString());
+        }
+
         static void Main(string[] args)
         {
-            /* 1 */
+            
             try
             {
-                V2DataOnGrid grid = new V2DataOnGrid("inputfile.txt");
-                Console.WriteLine(grid.ToLongString("n"));
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            //Console.WriteLine("========= DIRECTORY =========");
-            //Directory.SetCurrentDirectory("..\\..\\..\\");
-            //Console.WriteLine(Directory.GetCurrentDirectory());
-
-            /* 2 */
-            try
-            {
+                // 1
                 V2MainCollection mainCollection = new V2MainCollection();
+                mainCollection.DataChanged += DataChangedHandler;
+
+                // add
                 mainCollection.AddDefaults();
-                Console.WriteLine(mainCollection.ToLongString("n"));
 
-                Console.WriteLine();
-                Console.WriteLine("Среднее значение модуля поля для всех результатов измерений в коллекции V2MainCollection:");
-                Console.WriteLine(mainCollection.Average.ToString());
+                Console.WriteLine(mainCollection.Count.ToString());
 
-                Console.WriteLine();
-                Console.WriteLine("Значение модуля поля ближе всего к среднему значению модуля поля среди всех результатов измерений:");
-                Console.WriteLine(mainCollection.NearAverage.ToString());
 
-                Console.WriteLine();
-                Console.WriteLine("Экземпляры Vector2 точки измерения поля, которые встречаются в каждом элементе типа V2DataCollection в коллекции V2MainCollection:");
-                foreach (Vector2 v in mainCollection.Vectors)
-                {
-                    Console.WriteLine(v.ToString());
-                }
+
+               
             }
             catch (Exception ex)
             {
