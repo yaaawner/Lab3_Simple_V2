@@ -98,8 +98,8 @@ namespace Lab3_Simple_V2
             {
                 grid[i].initRandom(0, 100);
                 collections[i].initRandom(4, 100, 100, 0, 100);
-                v2Datas.Add(grid[i]);
-                v2Datas.Add(collections[i]);
+                this.Add(grid[i]);
+                this.Add(collections[i]);
             }
 
             Grid1D nullOx = new Grid1D(0, 0);
@@ -109,8 +109,8 @@ namespace Lab3_Simple_V2
 
             grid[3].initRandom(0, 100);
             collections[3].initRandom(0, 100, 100, 0, 100);
-            v2Datas.Add(grid[3]);
-            v2Datas.Add(collections[3]);
+            this.Add(grid[3]);
+            this.Add(collections[3]);
         }
 
         public override string ToString()

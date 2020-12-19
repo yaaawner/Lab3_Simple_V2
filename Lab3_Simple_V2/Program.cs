@@ -72,9 +72,10 @@ namespace Lab3_Simple_V2
                 mainCollection.DataChanged += DataChangedHandler;
 
                 // add
+                Console.WriteLine("====== ADD ======");
                 mainCollection.AddDefaults();
 
-                Console.WriteLine(mainCollection.Count.ToString());
+                //Console.WriteLine(mainCollection.Count.ToString());
 
 
 
