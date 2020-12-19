@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Numerics;
-using System.IO;
 
 namespace Lab3_Simple_V2
 {
@@ -64,7 +63,6 @@ namespace Lab3_Simple_V2
 
         static void Main(string[] args)
         {
-            
             try
             {
                 // 1
@@ -74,12 +72,24 @@ namespace Lab3_Simple_V2
                 // add
                 Console.WriteLine("====== ADD ======");
                 mainCollection.AddDefaults();
-
                 //Console.WriteLine(mainCollection.Count.ToString());
 
+                // replace
+                Console.WriteLine();
+                Console.WriteLine("====== REPLACE ======");
+                V2DataCollection buf = new V2DataCollection("replace", 783.3);
+                mainCollection[2] = buf;
 
+                // change
+                Console.WriteLine();
+                Console.WriteLine("====== CHANGE ======");
+                mainCollection[3].Info = "lalala";
+                mainCollection[3].Freq = 9999.99;
 
-               
+                // remove
+                Console.WriteLine();
+                Console.WriteLine("====== REMOVE ======");
+                mainCollection.Remove("lalala", 9999.99);
             }
             catch (Exception ex)
             {

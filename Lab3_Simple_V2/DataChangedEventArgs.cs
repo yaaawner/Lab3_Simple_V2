@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Lab3_Simple_V2
+﻿namespace Lab3_Simple_V2
 {
     class DataChangedEventArgs
     {

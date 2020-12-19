@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Numerics;
+﻿using System.Numerics;
 using System.ComponentModel;
 
 namespace Lab3_Simple_V2

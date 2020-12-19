@@ -17,7 +17,8 @@ namespace Lab3_Simple_V2
         {
             if (DataChanged != null)
             {
-                DataChanged(this, new DataChangedEventArgs(ChangeInfo.ItemChanged, this.Count));
+                V2Data v = (V2Data)source;
+                DataChanged(this, new DataChangedEventArgs(ChangeInfo.ItemChanged, v.Freq));
             }
         }
 
@@ -33,7 +34,7 @@ namespace Lab3_Simple_V2
                 
                 if (DataChanged != null)
                 {
-                    DataChanged(this, new DataChangedEventArgs(ChangeInfo.Replace, v2Datas.Count));
+                    DataChanged(this, new DataChangedEventArgs(ChangeInfo.Replace, v2Datas[index].Freq));
                 }
                 
             }
