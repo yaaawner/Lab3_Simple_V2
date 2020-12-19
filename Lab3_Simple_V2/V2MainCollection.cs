@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using System;
 using System.Numerics;
+using System.ComponentModel;
 
 namespace Lab3_Simple_V2
 {
@@ -11,6 +12,14 @@ namespace Lab3_Simple_V2
         private List<V2Data> v2Datas;
 
         public event DataChangedEventHandler DataChanged;
+
+        protected void PropertyHandler(object source, PropertyChangedEventArgs args)
+        {
+            if (DataChanged != null)
+            {
+                DataChanged(this, new DataChangedEventArgs(ChangeInfo.ItemChanged, this.Count));
+            }
+        }
 
         public V2Data this[int index]
         {
@@ -21,6 +30,12 @@ namespace Lab3_Simple_V2
             set
             {
                 v2Datas[index] = value;
+                
+                if (DataChanged != null)
+                {
+                    DataChanged(this, new DataChangedEventArgs(ChangeInfo.Replace, v2Datas.Count));
+                }
+                
             }
         }
 
@@ -36,6 +51,7 @@ namespace Lab3_Simple_V2
             {
                 DataChanged(this, new DataChangedEventArgs(ChangeInfo.Add, item.Freq));
             }
+            item.PropertyChanged += PropertyHandler;
         }
 
         public bool Remove(string id, double w)
@@ -46,6 +62,7 @@ namespace Lab3_Simple_V2
             {
                 if (v2Datas[i].Freq == w && v2Datas[i].Info == id)
                 {
+                    v2Datas[i].PropertyChanged -= PropertyHandler;
                     v2Datas.Remove(v2Datas[i]);
                     flag = true;
                 }
