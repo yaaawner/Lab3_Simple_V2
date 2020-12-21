@@ -36,7 +36,8 @@ namespace Lab3_Simple_V2
                 {
                     DataChanged(this, new DataChangedEventArgs(ChangeInfo.Replace, v2Datas[index].Freq));
                 }
-                
+                v2Datas[index].PropertyChanged += PropertyHandler;
+
             }
         }
 

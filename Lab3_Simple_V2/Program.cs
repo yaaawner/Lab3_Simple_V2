@@ -86,6 +86,12 @@ namespace Lab3_Simple_V2
                 mainCollection[3].Info = "lalala";
                 mainCollection[3].Freq = 9999.99;
 
+                // new change
+                Console.WriteLine();
+                Console.WriteLine("====== CHANGE ======");
+                mainCollection[2].Info = "aaaaaa";
+                mainCollection[2].Freq = 111.99;
+
                 // remove
                 Console.WriteLine();
                 Console.WriteLine("====== REMOVE ======");
