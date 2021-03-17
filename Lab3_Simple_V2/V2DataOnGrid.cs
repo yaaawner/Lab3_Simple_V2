@@ -5,7 +5,7 @@ using System.IO;
 using System.Collections;
 using System.Globalization;
 
-namespace Lab3_Simple_V2
+namespace ClassLibrary
 {
     class V2DataOnGrid : V2Data, IEnumerable<DataItem>
     {

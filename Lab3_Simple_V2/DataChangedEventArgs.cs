@@ -1,4 +1,4 @@
-﻿namespace Lab3_Simple_V2
+﻿namespace ClassLibrary
 {
     class DataChangedEventArgs
     {

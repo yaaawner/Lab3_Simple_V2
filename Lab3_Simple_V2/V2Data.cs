@@ -1,7 +1,7 @@
 ﻿using System.Numerics;
 using System.ComponentModel;
 
-namespace Lab3_Simple_V2
+namespace ClassLibrary
 {
     abstract class V2Data : INotifyPropertyChanged
     {

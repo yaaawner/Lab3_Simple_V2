@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Numerics;
 
-namespace Lab3_Simple_V2
+namespace ClassLibrary
 {
 
     enum ChangeInfo { ItemChanged, Add, Remove, Replace};

@@ -3,7 +3,7 @@ using System.Numerics;
 using System.Collections.Generic;
 using System.Collections;
 
-namespace Lab3_Simple_V2
+namespace ClassLibrary
 {
     class V2DataCollection : V2Data, IEnumerable<DataItem>
     {
